@@ -1,12 +1,11 @@
 package com.sainsbury.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * This interface ensure that each item in the search result provides
  * Title, Size, Unit Price and Description.
  */
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 @JsonIgnoreProperties({"link"})
 public interface ScrapeItem {
     public String getTitle();

@@ -7,7 +7,15 @@ import java.util.List;
  * implementation of this interface.
  */
 public interface ScrapeResult {
+    /**
+     * Return search result list containing ScrapeItem objects.
+     * @return
+     */
     List<? extends ScrapeItem> getResults();
 
+    /**
+     * Return total of unit price for search result list.
+     * @return
+     */
     double getTotal();
 }
