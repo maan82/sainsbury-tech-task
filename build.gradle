@@ -1,0 +1,47 @@
+buildscript {
+    repositories {
+        maven { url "http://repo.spring.io/libs-milestone" }
+        mavenLocal()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:1.0.0.RC1"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'sainsbury-tech-task'
+    version = '1.0.0'
+}
+
+repositories {
+    mavenCentral()
+    maven { url "http://repo.spring.io/libs-milestone" }
+}
+
+dependencies {
+    compile 'com.google.guava:guava:18.0'
+    compile 'org.springframework:spring-web:4.3.2.RELEASE'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.8.1'
+    compile 'org.jsoup:jsoup:1.9.2'
+    testCompile 'org.mockito:mockito-all:1.10.19'
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.codehaus.groovy:groovy-all:2.4.3'
+    testCompile 'info.cukes:cucumber-groovy:1.2.4'
+    testCompile 'info.cukes:cucumber-jvm-deps:1.0.3'
+    testCompile 'info.cukes:cucumber-junit:1.2.4'
+}
+
+test {
+    testLogging.showStandardStreams = true
+    systemProperties System.getProperties()
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.12'
+}
